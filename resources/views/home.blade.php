@@ -8,7 +8,7 @@
         </div>
         <div class="col-sm-9">
             <div class="d-flex">
-                <h4>FreeCodeCamp</h4>
+                <h4>{{ $user->username }}</h4>
                 <button class="btn btn-primary btn-sm mx-3" style="height: fit-content;">Follow</button>
             </div>
             <div class="d-flex">
@@ -30,13 +30,13 @@
 
     <div class="row pt-5">
         <div class="col-sm-4">
-            <img src="img/360034542_642504101262233_5404953441193147889_n.jpg" class="w-100">
+            <img src="{{ asset('img/1.jpg') }}" class="w-100">
         </div>
         <div class="col-sm-4">
-            <img src="img/359836495_660980589271141_6099708738252273540_n.jpg" class="w-100">
+            <img src="{{ asset('img/2.jpg') }}" class="w-100">
         </div>
         <div class="col-sm-4">
-            <img src="{{ asset('img/358047740_809680687399278_6442027077459451098_n.jpg') }}" class="w-100">
+            <img src="{{ asset('img/3.jpg') }}" class="w-100">
         </div>
     </div>
 </div>
