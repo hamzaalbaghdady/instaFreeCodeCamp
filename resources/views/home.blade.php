@@ -17,13 +17,12 @@
                 <h5 class="me-3"><b>403 </b>following</h5>
             </div>
             <div class="pt-4">
-                <h6><b>freeCodeCamp.org</b></h6>
+                <h6><b>{{ $user->profile->title }}</b></h6>
             </div>
             <div>
-                <h6>We're a global community of millions of people learning to code together.
-                    LearnToCodeRPG: https://www.freecodecamp.org/news/learn-to-code-rpg/
-                    <a href="#">www.freecodecamp.org</a>
-                </h6>
+                <h6>{{ $user->profile->description }}</h6>
+
+                <h6><a href="#">{{ $user->profile->url ?? 'N/A' }}</a> </h6>
             </div>
         </div>
     </div>

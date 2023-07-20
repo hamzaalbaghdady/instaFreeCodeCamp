@@ -11,7 +11,7 @@ class ProfilesController extends Controller
     //
     public function index($user)
     {
-        $user = User::find($user);
+        $user = User::findOrFail($user); // better than find(), it will show 404 error if fail.
         return view('home', [
             'user' => $user,
         ]);
