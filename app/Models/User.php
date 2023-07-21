@@ -50,6 +50,7 @@ class User extends Authenticatable
     }
     public function posts()
     {
-        return $this->hasmany(Post::class);
+        // the order by to return the array sorted by create time desc
+        return $this->hasmany(Post::class)->orderBy('created_at', 'DESC');
     }
 }

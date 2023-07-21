@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
@@ -22,8 +23,17 @@ class PostsController extends Controller
         ]);
         // if you have a field that dosn't need validation you can add it to array as 'field_name' => '',
 
-        auth()->User()->posts()->create($data); // to get the current user
+        // store image in storeg/app/public/uploads
+        $imagePath = request('image')->store('uploads', 'public');
 
-        dd(request()->all());
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit('1200', '1200');
+        $image->save();
+
+        auth()->User()->posts()->create([
+            'caption' => $data['caption'],
+            'image' => $imagePath
+        ]); // to get the current user
+
+        return redirect('/profile/' . auth()->user()->id); // go back to user profile
     }
 }
