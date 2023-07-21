@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use App\Models\Post;
 
 class PostsController extends Controller
 {
@@ -11,10 +12,19 @@ class PostsController extends Controller
     {
         $this->middleware('auth'); // I think its like session
     }
+
     public function create()
     {
         return view('posts.create'); // the same as posts/create
     }
+
+    public function show(\App\Models\Post $post)
+    {
+        // $post = Post::findorfail($post);
+        return view('posts.show', compact('post'));
+        // compact('post') is the same as ['post' => $post,]
+    }
+
     public function store()
     {
         $data = request()->validate([
