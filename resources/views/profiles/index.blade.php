@@ -4,19 +4,19 @@
     <div class="container w-50">
         <div class="row">
             <div class="col-sm-3">
-                <img alt="freecodecamp's profile picture" style="max-width: 100%;" class="rounded-circle img-fluid mb-5"
-                    src="https://miro.medium.com/v2/resize:fit:2400/1*B6_f-_SxscJ9FCuIjOrQAQ.jpeg">
+                <img alt="Profile picture" style="max-width: 100%;" class="rounded-circle img-fluid mb-5"
+                    src="{{ $user->profile->profileImage() }}">
             </div>
             <div class="col-sm-9">
                 <div class="d-flex justify-content-between align-items-baseline">
                     <h4>{{ $user->username }}</h4>
                     <!-- <button class="btn btn-primary btn-sm mx-3" style="height: fit-content;">Follow</button> -->
                     @can('update', $user->profile)
-                        <a href="/p/create">Add new post</a>
+                        <a href="/p/create" class="c-blue">Add new post</a>
                     @endcan
                 </div>
                 @can('update', $user->profile)
-                    <div class="mb-2"><a href="/profile/{{ $user->id }}/edit">Edit Profile</a></div>
+                    <div class="mb-2 "><a href="/profile/{{ $user->id }}/edit" class="c-blue">Edit Profile</a></div>
                 @endcan
 
                 <div class="d-flex">
@@ -30,8 +30,9 @@
                 <div>
                     <h6>{{ $user->profile->description }}</h6>
 
-                    <h6><a target="_blank"
-                            href="https://{{ $user->profile->url ?? 'N/A' }}">{{ $user->profile->url ?? 'N/A' }}</a> </h6>
+                    <h6><a target="_blank" class="c-blue-h"
+                            href="{{ $user->profile->url ?? 'N/A' }}">{{ $user->profile->url ?? 'N/A' }}</a>
+                    </h6>
                 </div>
             </div>
         </div>

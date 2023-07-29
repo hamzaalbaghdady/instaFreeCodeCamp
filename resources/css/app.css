@@ -1,0 +1,74 @@
+/* scrollbar Start  */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(245, 7, 193);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(181, 5, 143);
+}
+/* scrollbar End  */
+
+.comments {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 20%;
+}
+.comments::-webkit-scrollbar {
+    width: 0px;
+}
+
+.post {
+    max-height: 700px;
+    overflow: hidden;
+}
+
+.wx-30 {
+    width: 35px;
+}
+.fs-7 {
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.c-red {
+    color: red;
+}
+.c-blue {
+    color: blue;
+}
+.c-black {
+    color: black;
+}
+.c-wihte {
+    color: white;
+}
+
+.c-red-h:hover {
+    color: red;
+}
+.c-blue-h:hover {
+    color: blue;
+}
+.c-black-h:hover {
+    color: black;
+}
+.c-wihte-h:hover {
+    color: white;
+}

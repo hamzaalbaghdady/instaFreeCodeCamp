@@ -10,6 +10,11 @@ class profile extends Model
     use HasFactory;
     // Disable mass addignment
     protected $guarded = []; // it worked with me without this but the supervisor insisted
+
+    function profileImage()
+    {
+        return ($this->image) ? '/storage/' . $this->image : '/storage/profile/defoultImage.jpg';
+    }
     public function user()
     {
         return $this->belongsTo(User::class);
