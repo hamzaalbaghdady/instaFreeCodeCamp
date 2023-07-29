@@ -4,15 +4,21 @@
     <div class="container w-50">
         <div class="row">
             <div class="col-sm-3">
-                <img alt="freecodecamp's profile picture" style="max-width: 70%;" class="rounded-circle img-fluid"
+                <img alt="freecodecamp's profile picture" style="max-width: 100%;" class="rounded-circle img-fluid mb-5"
                     src="https://miro.medium.com/v2/resize:fit:2400/1*B6_f-_SxscJ9FCuIjOrQAQ.jpeg">
             </div>
             <div class="col-sm-9">
                 <div class="d-flex justify-content-between align-items-baseline">
                     <h4>{{ $user->username }}</h4>
                     <!-- <button class="btn btn-primary btn-sm mx-3" style="height: fit-content;">Follow</button> -->
-                    <a href="/p/create">Add new post</a>
+                    @can('update', $user->profile)
+                        <a href="/p/create">Add new post</a>
+                    @endcan
                 </div>
+                @can('update', $user->profile)
+                    <div class="mb-2"><a href="/profile/{{ $user->id }}/edit">Edit Profile</a></div>
+                @endcan
+
                 <div class="d-flex">
                     <h5 class="me-3"><b>{{ $user->posts->count() }} </b>posts</h5>
                     <h5 class="me-3"><b>134K </b>followers</h5>

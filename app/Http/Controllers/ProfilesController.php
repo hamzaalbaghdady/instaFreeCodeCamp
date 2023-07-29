@@ -16,4 +16,32 @@ class ProfilesController extends Controller
             'user' => $user,
         ]);
     }
+    public function edit(User $user)
+    {
+        $this->authorize('update', $user->profile); // for profilePolicy
+        return view('profiles.edit', compact('user'));
+    }
+    // the above function is better isn't it :)
+    // public function edit($user)
+    // {
+    //     $user = User::findOrFail($user);
+    //     return view('profiles.edit', [
+    //         'user' => $user
+    //     ]);
+    // }
+
+    public function update(User $user)
+    {
+        $this->authorize('update', $user->profile); // for profilePolicy
+
+        $data = request()->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'url' => 'url',
+            'image' => '',
+        ]);
+
+        auth()->user()->profile->update($data);
+        return redirect("/profile/{$user->id}");
+    }
 }
