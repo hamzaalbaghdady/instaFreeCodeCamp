@@ -17,6 +17,10 @@ class profile extends Model
     }
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class); // one to one relationship
+    }
+    public function followers()
+    {
+        return $this->belongsToMany(User::class); // many to many relationship
     }
 }

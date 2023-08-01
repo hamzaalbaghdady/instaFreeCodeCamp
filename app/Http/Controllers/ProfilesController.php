@@ -11,9 +11,11 @@ class ProfilesController extends Controller
     //
     public function index($user)
     {
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user) : false;
         $user = User::findOrFail($user); // better than find(), it will show 404 error if fail.
         return view('profiles.index', [
             'user' => $user,
+            'follows' => $follows
         ]);
     }
     public function edit(User $user)

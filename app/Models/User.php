@@ -57,11 +57,15 @@ class User extends Authenticatable
 
     public function profile()
     {
-        return $this->hasOne(Profile::class);
+        return $this->hasOne(Profile::class); // one to one relationship
     }
     public function posts()
     {
         // the order by to return the array sorted by create time desc
-        return $this->hasmany(Post::class)->orderBy('created_at', 'DESC');
+        return $this->hasmany(Post::class)->orderBy('created_at', 'DESC'); // one to many relationship
+    }
+    public function following()
+    {
+        return $this->belongsToMany(Profile::class); // many to many relationship
     }
 }
