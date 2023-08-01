@@ -59,6 +59,9 @@ a {
 .c-wihte {
     color: white;
 }
+.c-gray {
+    color: rgb(133, 133, 133);
+}
 
 .c-red-h:hover {
     color: red;
@@ -71,4 +74,15 @@ a {
 }
 .c-wihte-h:hover {
     color: white;
+}
+
+.comment-field {
+    outline: none;
+    border: none;
+    height: 30px;
+}
+.comment-field:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
 }

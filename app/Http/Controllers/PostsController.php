@@ -13,6 +13,16 @@ class PostsController extends Controller
         $this->middleware('auth'); // I think its like session
     }
 
+    public function index()
+    {   // get all users id that the auth user is following
+        $users = auth()->user()->following()->pluck('profiles.user_id');
+        // get all posts for $users
+        $posts = Post::whereIn('user_id', $users)->orderBy('created_at', 'DESC')->get();
+        // orderBy('created_at', 'DESC') == latest()
+
+        return view('posts.index', compact('posts'));
+    }
+
     public function create()
     {
         return view('posts.create'); // the same as posts/create
