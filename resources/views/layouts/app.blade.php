@@ -66,7 +66,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/">
+                                    <a class="dropdown-item" href="/profile/{{ Auth::user()->id }}">
                                         Home
                                     </a>
 

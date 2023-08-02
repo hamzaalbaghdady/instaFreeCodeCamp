@@ -11,7 +11,11 @@
                 <div class="d-flex justify-content-between align-items-baseline">
                     <div class="d-flex">
                         <h4>{{ $user->username }}</h4>
-                        <follow-button user-id="{{ $user->id }}" follows="{{ $follows }}"></follow-button>
+                        @if (auth()->check() && $user->profile->user_id !== auth()->user()->id)
+                            {{-- better use policy --}}
+                            <follow-button user-id="{{ $user->id }}" follows="{{ $follows }}"></follow-button>
+                        @endif
+
                     </div>
                     @can('update', $user->profile)
                         <a href="/p/create" class="c-blue">Add new post</a>
